@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  mongodb_container:
+    image: mongo:latest
+    container_name: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: secret
+      MONGO_INITDB_DATABASE: youtubeTranscriptDB
+    ports:
+      - 27017:27017
+    networks:
+      - youtube-api-mongo-network
+    volumes:
+      - mongodb_data_container:/data/db
+
+  youtube-transcript-api:
+    image: python-transcript-api:latest
+    container_name: youtube-transcript-api
+    ports:
+      - 5000:5000
+    networks:
+      - youtube-api-mongo-network
+volumes:
+  mongodb_data_container:
+networks:
+  youtube-api-mongo-network:
