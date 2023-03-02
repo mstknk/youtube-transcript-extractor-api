@@ -59,7 +59,8 @@ python-transcript-api   latest    42471e8d9b06   58 seconds ago   154MB
 ```
 
 ### Docker Compose
-Lets say we wanted to retrieve a transcript and write that transcript as a JSON file in the same format as the API returned it as. That would look something like this:
 
-```python
-# your_custom_script.py
+
+```bash
+docker-compose up 
+```
