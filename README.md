@@ -1,20 +1,8 @@
 
 # Store YouTube Transcript/Subtitle to Mongo DB API (including automatically generated subtitles and subtitle translations)  
 
-This is a python API which allows you to store mongo collection the transcript/subtitles for a given YouTube video. Using  [youtube-transcript-api](https://pypi.org/project/youtube-transcript-api/):
+This is a python API which allows you to get the german transcript/subtitles for a given YouTube video. Using  [youtube-transcript-api](https://pypi.org/project/youtube-transcript-api/):
 
-## Mongo Connection
-
-mongo db connection and collection settings :
-```
-WATCH_URL = 'https://www.youtube.com/watch?v={video_id}'
-MONGO_DB = 'youtubeTranscriptDB'
-MONGO_DB_USERNAME = 'mongoadmin'
-MONGO_DB_PASSWORD = 'secret'
-MONGO_HOST = 'mongo' !! replace mongo host
-MONGO_TRANSCRIPT_COLLECTION = 'transcript'
-MONGO_YOUTUBE_COLLECTION = 'youtube'
-```
 
 If you want to use it from source, you'll have to install the dependencies manually:
 
@@ -33,7 +21,23 @@ curl -X POST http://localhost:5000/api/transcripts/PzqmxMjcyM0
 This will return successful response looking somewhat like this:
 
 ```json
-{"success": true}
+{
+	"result": [{
+			"PzqmxMjcyM0": [{
+					"text": "schon Zuschauer gedenken zum einen der",
+					"start": 0.06,
+					"duration": 3.78
+				},
+				{
+					"text": "Opfer der zivilen wie auch der",
+					"start": 2.34,
+					"duration": 4.559
+				}
+			]
+		},
+		[]
+	]
+}
 ```
 
 In case of api error return response looks like this:
@@ -45,7 +49,7 @@ In case of api error return response looks like this:
 ### Docker Image Build
 Build docker image :
 ```dockerfile
-docker build --tag python-transcript-api .
+docker build --tag youtube-transcript-api .
 ```
 
 ```bash
@@ -56,11 +60,4 @@ docker build --tag python-transcript-api .
 REPOSITORY              TAG       IMAGE ID       CREATED          SIZE
 python-transcript-api   latest    42471e8d9b06   58 seconds ago   154MB
 
-```
-
-### Docker Compose
-
-
-```bash
-docker-compose up 
 ```
