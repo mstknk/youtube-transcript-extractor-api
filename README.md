@@ -61,3 +61,9 @@ REPOSITORY              TAG       IMAGE ID       CREATED          SIZE
 python-transcript-api   latest    42471e8d9b06   58 seconds ago   154MB
 
 ```
+
+### Docker run container
+
+```text
+docker run -p 5000:5000 -d youtube-transcript-api
+```
