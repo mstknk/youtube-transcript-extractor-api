@@ -17,7 +17,7 @@ def youtube_transcript_api(youtube_id):
     except Exception as exception:
         logger.error("Error: " + exception.cause)
         return jsonify({"error": exception.cause}), 404
-    return jsonify({"result": transcript[0].get(youtube_id)}), 201
+    return jsonify(transcript[0].get(youtube_id)), 200
 
 
 if __name__ == '__main__':
