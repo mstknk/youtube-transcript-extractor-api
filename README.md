@@ -49,7 +49,7 @@ In case of api error return response looks like this:
 ### Docker Image Build
 Build docker image :
 ```dockerfile
-docker build --tag youtube-transcript-api .
+docker build --tag youtube-transcript-extractor-api .
 ```
 
 ```bash
@@ -65,5 +65,5 @@ python-transcript-api   latest    42471e8d9b06   58 seconds ago   154MB
 ### Docker run container
 
 ```text
-docker run -p 5000:5000 -d youtube-transcript-api
+docker run -p 5000:5000 -d youtube-transcript-extractor-api
 ```

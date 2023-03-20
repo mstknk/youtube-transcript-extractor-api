@@ -1,5 +1,5 @@
 import logging
-import json
+from flask import jsonify
 from flask import Flask
 from youtube_transcript_api import YouTubeTranscriptApi
 
@@ -16,8 +16,8 @@ def youtube_transcript_api(youtube_id):
         transcript = YouTubeTranscriptApi.get_transcripts([youtube_id], languages=['de'])
     except Exception as exception:
         logger.error("Error: " + exception.cause)
-        return json.dumps({"error": exception.cause}), 404
-    return json.dumps({"result": transcript}), 201
+        return jsonify({"error": exception.cause}), 404
+    return jsonify({"result": transcript[0].get(youtube_id)}), 201
 
 
 if __name__ == '__main__':
