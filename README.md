@@ -1,5 +1,5 @@
 
-# Store YouTube Transcript/Subtitle to Mongo DB API (including automatically generated subtitles and subtitle translations)  
+# Store YouTube Transcript/Subtitle (including automatically generated subtitles and subtitle translations)  
 
 This is a python API which allows you to get the german transcript/subtitles for a given YouTube video. Using  [youtube-transcript-api](https://pypi.org/project/youtube-transcript-api/):
 
