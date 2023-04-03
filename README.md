@@ -58,7 +58,7 @@ docker build --tag youtube-transcript-extractor-api .
 
 ```text
 REPOSITORY              TAG       IMAGE ID       CREATED          SIZE
-python-transcript-api   latest    42471e8d9b06   58 seconds ago   154MB
+python-transcript-extractor-api   latest    42471e8d9b06   58 seconds ago   154MB
 
 ```
 
